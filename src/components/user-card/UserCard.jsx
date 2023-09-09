@@ -17,13 +17,11 @@ import { ReactComponent as UnverifiedIcon } from './UnverifiedIcon.svg';
  */
 
 const LoadingState = () => {
-  <div className={styles.loading}>Loading...</div>;
+  return <div>Loading...</div>;
 };
 
 const ErrorState = () => {
-  <div className={styles.error}>
-    <ErrorIcon /> An error has occurred
-  </div>;
+  return <div>An error has occurred</div>;
 };
 
 const Avatar = ({ imageUrl }) => {
@@ -36,10 +34,10 @@ const Bio = ({ bio }) => {
   return <p>{bio || noBio}</p>;
 };
 
-export const UserCard = ({ isLoading, error, user }) => {
+export const UserCard = ({ isLoading, user }) => {
   if (isLoading) return <LoadingState />;
 
-  if (error) return <ErrorState />;
+  if (!user) return <ErrorState />;
 
   return (
     <div className={styles.card}>
@@ -59,7 +57,6 @@ export const UserCard = ({ isLoading, error, user }) => {
 
 UserCard.propTypes = {
   isLoading: PropTypes.bool,
-  error: PropTypes.bool,
   user: PropTypes.shape({
     name: PropTypes.string,
     email: PropTypes.string,
@@ -67,4 +64,9 @@ UserCard.propTypes = {
     verified: PropTypes.bool,
     bio: PropTypes.string,
   }),
+};
+
+UserCard.defaultProps = {
+  isLoading: false,
+  user: undefined,
 };

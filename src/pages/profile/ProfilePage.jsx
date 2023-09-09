@@ -24,7 +24,6 @@ export const ProfilePage = () => {
     <div className={styles.root}>
       <h1>Profile Page</h1>
       <UserCard user={user} isLoading={false} />
-
       <button onClick={handleLogout}>Logout</button>
     </div>
   );
