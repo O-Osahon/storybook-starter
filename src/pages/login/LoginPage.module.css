@@ -1,0 +1,51 @@
+.root {
+  width: 500px;
+  padding: 32px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  border-radius: 8px;
+  background: whitesmoke;
+}
+
+.root label {
+  font-weight: 400;
+  display: block;
+  margin-top: 24px;
+}
+
+.root input {
+  display: block;
+  width: 100%;
+  font: inherit;
+  outline: none;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s;
+  margin-top: 8px;
+}
+
+.root input:focus {
+  border-color: #4f005f;
+}
+
+.root button[type='submit'] {
+  font: inherit;
+  outline: none;
+  padding: 8px 32px;
+  border-radius: 4px;
+  border: 1px solid #4f005f;
+  background: #4f005f;
+  color: white;
+  cursor: pointer;
+  margin-top: 32px;
+}
+
+.root button[type='submit']:disabled {
+  background: #ccc;
+  border-color: #ccc;
+  cursor: not-allowed;
+}
