@@ -15,7 +15,6 @@ export default {
 export const LoadingState = {
   args: {
     isLoading: true,
-    user: {},
   },
 };
 
@@ -53,9 +52,21 @@ export const Unverified = {
   },
 };
 
+export const Verified = {
+  args: {
+    isLoading: false,
+    user: {
+      name: 'John Doe',
+      avatar: userAvatar,
+      bio: 'This is a bio',
+      verified: true,
+    },
+  },
+};
+
 export const ErrorState = {
   args: {
     isLoading: false,
   },
-  render: () => <UserCard isLoading={false} user={false} />,
+  render: () => <UserCard isLoading={false} />,
 };

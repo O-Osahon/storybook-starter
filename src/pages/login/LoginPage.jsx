@@ -18,7 +18,7 @@ export const LoginPage = () => {
 
   const disabledSubmit = !email || !password;
   return (
-    <div className={styles.root}>
+    <div className={styles.root} data-testid="login-page">
       <h1>Login</h1>
 
       <form onSubmit={handleSubmit}>

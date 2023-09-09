@@ -1,8 +1,9 @@
 import styles from './UserCard.module.css';
 import PropTypes from 'prop-types';
-import { ReactComponent as ErrorIcon } from './ErrorIcon.svg';
 import { ReactComponent as VerifiedIcon } from './VerifiedIcon.svg';
 import { ReactComponent as UnverifiedIcon } from './UnverifiedIcon.svg';
+
+export const defaultImageUrl = 'https://via.placeholder.com/50';
 
 /**
   DIFFERENT STATES OF THIS COMPONENT:
@@ -17,15 +18,14 @@ import { ReactComponent as UnverifiedIcon } from './UnverifiedIcon.svg';
  */
 
 const LoadingState = () => {
-  return <div>Loading...</div>;
+  return <div data-testid="user-card-loading">Loading...</div>;
 };
 
 const ErrorState = () => {
-  return <div>An error has occurred</div>;
+  return <div data-testid="user-card-error">An error has occurred</div>;
 };
 
 const Avatar = ({ imageUrl }) => {
-  const defaultImageUrl = 'https://via.placeholder.com/50';
   return <img src={imageUrl || defaultImageUrl} alt="user avatar" />;
 };
 
@@ -40,15 +40,15 @@ export const UserCard = ({ isLoading, user }) => {
   if (!user) return <ErrorState />;
 
   return (
-    <div className={styles.card}>
+    <div className={styles.card} data-testid="user-card">
       <Avatar imageUrl={user.avatar} />
       <div>
-        <h4>Some card title</h4>
+        <h4>{user.name}</h4>
         <Bio bio={user.bio} />
         {user.verified ? (
-          <VerifiedIcon className={styles.verified} />
+          <VerifiedIcon className={styles.verified} data-testid="verified-icon" />
         ) : (
-          <UnverifiedIcon className={styles.unverified} />
+          <UnverifiedIcon className={styles.unverified} data-testid="unverified-icon" />
         )}
       </div>
     </div>
